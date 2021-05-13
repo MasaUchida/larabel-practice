@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\BlogController; //使うコントローラーを呼ぶ
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +14,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+/**
+ * ルーティング
+ * laravel8から書き方変わった
+ * [BlogController::class, 'メソッド名']
+ */
+Route::get('/',[BlogController::class, 'showList'])->name('blogs');
